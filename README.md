@@ -27,3 +27,9 @@ This repo demonstrates the difference in how `nyc` treats `typescript` interface
 I think there is "nothing to test" for an interface file, so even though the warnings in version `10.1.2` were annoying, it made sense that the interface files were ignored.
 
 Now with version `10.3.2`, the warnings are gone because the interface files are counted towards lines covered. This is incorrect in my opinion, so the point of opening this issue is to determine if this change was intentional.
+
+---
+
+Solved:
+
+See `run_on_compiled` branch for solution that works for both versions (run `nyc` on compiled javascript instead of using `ts-node`).
