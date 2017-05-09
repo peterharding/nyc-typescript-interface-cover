@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "description": "nyc shows 'nothing could be mapped' for typescript interfaces in version 10.1.2",
   "scripts": {
-    "test": "mocha -r ts-node/register './test/**/*.spec.ts'",
-    "cover": "nyc npm test"
+    "test": "tsc && nyc ./node_modules/.bin/mocha 'build/test/**/*.spec.js'"
   },
   "author": "Peter Harding",
   "license": "MIT",
@@ -14,27 +13,16 @@
     "chai": "^3.5.0",
     "mocha": "^3.3.0",
     "nyc": "10.1.2",
-    "ts-node": "^3.0.4",
     "typescript": "^2.3.2"
   },
   "nyc": {
     "include": [
-      "src/*.ts"
-    ],
-    "exclude": [
-      "test/*.spec.ts"
-    ],
-    "extension": [
-      ".ts"
-    ],
-    "require": [
-      "ts-node/register"
+      "build/src/**/*.js"
     ],
     "reporter": [
       "lcov",
       "html",
       "text-summary"
-    ],
-    "all": true
+    ]
   }
 }
